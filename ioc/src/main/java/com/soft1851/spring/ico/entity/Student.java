@@ -1,6 +1,8 @@
 package com.soft1851.spring.ico.entity;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * @ClassName Student
@@ -13,17 +15,12 @@ public class Student {
     private  Integer id;
     private  String  name;
     private List<String> hobbies;
-    private  List<Phone> phones;
+    private Set<Phone> phones;
+    private Map<Phone,String> phoneHeight;
 
-    public Student(Integer id, String name, List<String> hobbies, List<Phone> phones) {
-        this.id = id;
-        this.name = name;
-        this.hobbies = hobbies;
-        this.phones = phones;
+    public Student() {
     }
-    public  Student(){
 
-    }
 
     public Integer getId() {
         return id;
@@ -49,12 +46,20 @@ public class Student {
         this.hobbies = hobbies;
     }
 
-    public List<Phone> getPhones() {
+    public Set<Phone> getPhones() {
         return phones;
     }
 
-    public void setPhones(List<Phone> phones) {
+    public void setPhones(Set<Phone> phones) {
         this.phones = phones;
+    }
+
+    public Map<Phone, String> getPhoneHeight() {
+        return phoneHeight;
+    }
+
+    public void setPhoneHeight(Map<Phone, String> phoneHeight) {
+        this.phoneHeight = phoneHeight;
     }
 
     @Override
@@ -64,6 +69,7 @@ public class Student {
                 ", name='" + name + '\'' +
                 ", hobbies=" + hobbies +
                 ", phones=" + phones +
+                ", phoneHeight=" + phoneHeight +
                 '}';
     }
 }

@@ -1,6 +1,6 @@
-package com.soft1851.spring.ico.entity;
+package com.soft1851.spring.ico.app;
 
-import com.soft1851.spring.ico.app.TestHello;
+import com.soft1851.spring.ico.entity.Student;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;

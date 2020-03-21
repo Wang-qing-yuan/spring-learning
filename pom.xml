@@ -27,6 +27,7 @@
         <logback.version>1.2.3</logback.version>
         <slf4j.version>1.7.30</slf4j.version>
         <druid.version>1.1.21</druid.version>
+        <fastjson.version>1.2.66</fastjson.version>
     </properties>
 
     <dependencies>
@@ -37,6 +38,12 @@
             <version>${spring.version}</version>
         </dependency>
 
+        <!--        Spring WebMvc 会及联引入spring web模块-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
 
         <!--JUnit，级联引入了hamcrest -->
         <dependency>
@@ -92,6 +99,13 @@
             <artifactId>druid</artifactId>
             <version>${druid.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${fastjson.version}</version>
+        </dependency>
+
     </dependencies>
 
 

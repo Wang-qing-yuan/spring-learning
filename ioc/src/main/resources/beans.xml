@@ -2,7 +2,7 @@
 <bean id="phone4" class="com.soft1851.spring.ioc.entity.Phone" p:price="4889.0" p:brand="iphone xr"/>
 <bean id="student" class="com.soft1851.spring.ioc.entity.Student">
 <property name="id" value="1802343126"/>
-<property name="name" value="zxl"/>
+<property name="name" value="wqy"/>
 <property name="hobbies">
     <list>
         <value>看电影</value>

@@ -5,17 +5,22 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 /**
- * @className Forum
+ * @className MatterDto
  * @Description TODO
- * @Date 2020/3/30
+ * @Date 2020/3/31
  * @Version 1.0
  **/
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Forum {
-    private Integer forumId;
-    private String forumName;
+public class MatterDto {
+    private String teacherName;
+    private String clazzName;
+    private String studentName;
+    private String hometown;
+    private LocalDate birthday;
 }

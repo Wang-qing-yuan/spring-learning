@@ -5,17 +5,22 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 /**
- * @className Forum
+ * @className Clazz
  * @Description TODO
- * @Date 2020/3/30
+ * @Date 2020/3/31
  * @Version 1.0
  **/
 @Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
-public class Forum {
-    private Integer forumId;
-    private String forumName;
+public class Clazz {
+    private Integer clazzId;
+    private String clazzName;
+    private Integer teacherId;
+    private Teacher teacher;
+    private List<Student> students;
 }

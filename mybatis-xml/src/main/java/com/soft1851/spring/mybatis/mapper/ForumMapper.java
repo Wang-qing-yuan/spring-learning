@@ -5,10 +5,9 @@ import com.soft1851.spring.mybatis.entity.Forum;
 import java.util.List;
 
 /**
- * @ClassName ForumMapper
+ * @className ForumMapper
  * @Description TODO
- * @Author wangqingyuan
- * @Date 2020/3/30 &11:38
+ * @Date 2020/3/30
  * @Version 1.0
  **/
 public interface ForumMapper {
@@ -44,4 +43,3 @@ public interface ForumMapper {
      */
     Forum selectForumById(int id);
 }
-

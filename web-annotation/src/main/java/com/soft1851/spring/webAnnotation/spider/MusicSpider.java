@@ -2,7 +2,7 @@ package com.soft1851.spring.webAnnotation.spider;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.soft1851.spring.webAnnotation.entity.Topic;
+import com.soft1851.spring.webAnnotation.entity.Music;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -16,20 +16,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @ClassName JueJunSpider
+ * @ClassName MusicSpider
  * @Description TODO
  * @Author wangqingyuan
- * @Date 2020/3/28 &13:25
+ * @Date 2020/4/2 &10:51
  * @Version 1.0
  **/
-public class JueJinSpider {
-
+public class MusicSpider {
     private static final Integer SUCCESS = 200;
 
-    public static List<Topic> getTopics(){
-        List<Topic> topics = new ArrayList<>();
+    public static List<Music> getMusics(){
+        List<Music> musics = new ArrayList<>();
         //目标地址
-        String url = "https://short-msg-ms.juejin.im/v1/topicList?uid=5e7d8e016fb9a03c387f26d5&device_id=1585286658035&token=eyJhY2Nlc3NfdG9rZW4iOiJKVGxvZFRhNE81aDFTOHZrIiwicmVmcmVzaF90b2tlbiI6IkZBMjgySWV1TXhGNWFZaVMiLCJ0b2tlbl90eXBlIjoibWFjIiwiZXhwaXJlX2luIjoyNTkyMDAwfQ%3D%3D&src=web&sortType=hot&page=0&pageSize=100";
+        String url = "https://www.bilibili.com/audio/music-service-c/web/song/of-menu?sid=10624&pn=1&ps=100";
         //创建httpclient对象
         CloseableHttpClient httpClient = HttpClients.createDefault();
         //创建get对象
@@ -57,20 +56,21 @@ public class JueJinSpider {
 
 //            System.out.println(jsonObject);
 
-            JSONArray list = jsonObject.getJSONObject("d").getJSONArray("list");
-//            System.out.println(list);
+            JSONArray list = jsonObject.getJSONObject("data").getJSONArray("data");
+
             list.forEach(o ->{
                 JSONObject json = JSONObject.parseObject(o.toString());
-                Topic topic = Topic.builder()
-                        .id(json.getString("objectId"))
-                        .topicName(json.getString("title"))
-                        .topicIcon((json.getString("icon")))
-                        .description(json.getString("description"))
-                        .msgCount(json.getInteger("msgsCount"))
-                        .followersCount(json.getInteger("followersCount"))
-                        .followed(json.getBoolean("followed"))
+                Music music = Music.builder()
+                        .id(json.getInteger("id"))
+                        .name(json.getString("title"))
+                        .author((json.getString("author")))
+                        .src(json.getString("cid")) //歌曲链接
+                        .img(json.getString("cover"))
+                        .count(json.getInteger("duration"))//播放次数
+                        .type(json.getString("duration"))//歌曲类别
+                        .update_time(json.getString("duration"))//上架时间
                         .build();
-                topics.add(topic);
+                musics.add(music);
             });
         } else {
             System.out.println("请求失败");
@@ -81,11 +81,11 @@ public class JueJinSpider {
         } catch (IOException e){
             e.printStackTrace();
         }
-        return topics;
+        return musics;
     }
 
     public static void main(String[] args) {
 
-        System.out.println(getTopics());
+        System.out.println(getMusics());
     }
 }

@@ -32,18 +32,18 @@ public class StudentMapperTest {
 
     @Test
     public void delete() {
-        studentMapper.delete(2012);
+        studentMapper.delete(5010);
     }
 
     @Test
     public void update() {
-        Student student = studentMapper.getStudentById(2011);
+        Student student = studentMapper.getStudentById(5005);
         System.out.println(student);
         student.setStudentName("新名字");
         student.setHometown("上海");
         student.setBirthday(LocalDate.of(1999,11,11));
         studentMapper.update(student);
-        System.out.println(studentMapper.getStudentById(2011));
+        System.out.println(studentMapper.getStudentById(2000));
     }
 
     @Test
@@ -51,7 +51,7 @@ public class StudentMapperTest {
         List<Student> students = new ArrayList<>();
         for (int i = 0; i < 10; i++){
             Student student = Student.builder()
-                    .studentId(4000 + i)
+                    .studentId(5012 + i)
                     .studentName("测试" + i)
                     .clazzId(1)
                     .hometown("测试城市")

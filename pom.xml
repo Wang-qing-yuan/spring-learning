@@ -15,6 +15,8 @@
         <module>web</module>
         <module>web-annotation</module>
         <module>mybatis-xml</module>
+        <module>mybatis-annotation</module>
+        <module>jdbc-xml</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -32,11 +34,11 @@
         <fastjson.version>1.2.66</fastjson.version>
         <mybatis.version>3.5.4</mybatis.version>
         <spring-mybatis.version>2.0.4</spring-mybatis.version>
+        <hibernate-version>5.4.13.Final</hibernate-version>
 
     </properties>
 
-    <dependencies>
-        <!-- Spring上下文模块,级联引入了aop、beans、core、expression-->
+    <dependencies>    <!-- Spring上下文模块,级联引入了aop、beans、core、expression-->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
@@ -173,8 +175,25 @@
             <version>${spring.version}</version>
         </dependency>
 
+        <!-- Hibernate-->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${hibernate-version}</version>
+        </dependency>
+        <!--SpringORM模块-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
 
-
+        <!-- https://mvnrepository.com/artifact/cn.hutool/hutool-all -->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>5.2.5</version>
+        </dependency>
 
 
 
@@ -228,4 +247,5 @@
             </plugins>
         </pluginManagement>
     </build>
+
 </project>
